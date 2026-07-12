@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CreditWise AI | Loan Intelligence Platform</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+</head>
+<body>
+  <div class="loader">
+    <div class="orbital-ring"></div>
+    <div class="loader-text">CreditWise<span>AI</span></div>
+  </div>
+
+  <div class="cursor-glow"></div>
+  <div class="cursor-trail"></div>
+
+  <nav class="nav">
+    <div class="brand">CreditWise<span>AI</span></div>
+    <div class="nav-links">
+      <a href="#overview">Overview</a>
+      <a href="#models">Models</a>
+      <a href="#predict">Predict</a>
+      <a href="#insights">Insights</a>
+    </div>
+    <button class="ghost-btn" onclick="document.querySelector('#predict').scrollIntoView({behavior:'smooth'})">Launch Demo</button>
+  </nav>
+
+  <main>
+    <section class="hero" id="overview">
+      <div class="hero-copy">
+        <p class="eyebrow">AI-powered lending intelligence</p>
+        <h1>Approve smarter, assess faster, and reduce risk with confidence.</h1>
+        <p class="hero-subtitle">CreditWiseAI transforms the original loan-approval notebook into a premium, interview-ready financial intelligence platform powered by explainable ML.</p>
+        <div class="hero-actions">
+          <button class="primary-btn" onclick="document.querySelector('#predict').scrollIntoView({behavior:'smooth'})">Try Live Prediction</button>
+          <button class="secondary-btn" onclick="document.querySelector('#models').scrollIntoView({behavior:'smooth'})">Explore Models</button>
+        </div>
+        <div class="metrics-row">
+          <div class="metric-card"><strong id="metric-accuracy">88%</strong><span>Model accuracy</span></div>
+          <div class="metric-card"><strong>24/7</strong><span>Risk monitoring</span></div>
+          <div class="metric-card"><strong>1000+</strong><span>Applications analyzed</span></div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="glass-panel">
+          <div class="panel-header">Live Risk Overview</div>
+          <div class="status-pill">System Status: Stable</div>
+          <div class="chart-placeholder"></div>
+          <div class="mini-grid">
+            <div class="mini-card"><span>Approval Probability</span><strong id="hero-probability">0.88</strong></div>
+            <div class="mini-card"><span>Risk Score</span><strong id="hero-risk">12</strong></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="models">
+      <div class="section-title">
+        <p class="eyebrow">Model stack</p>
+        <h2>Explainable intelligence for modern lending decisions.</h2>
+      </div>
+      <div class="card-grid">
+        <div class="info-card tilt-card"><h3>Logistic Regression</h3><p>Fast baseline for high-clarity decisions.</p></div>
+        <div class="info-card tilt-card"><h3>KNN</h3><p>Neighbor-based pattern recognition for similar applicants.</p></div>
+        <div class="info-card tilt-card"><h3>Naive Bayes</h3><p>Probabilistic scoring with strong interpretability.</p></div>
+        <div class="info-card tilt-card"><h3>Decision Tree</h3><p>Transparent branching logic for policy review.</p></div>
+      </div>
+    </section>
+
+    <section class="section predict-section" id="predict">
+      <div class="section-title">
+        <p class="eyebrow">Smart prediction</p>
+        <h2>Generate an instant risk assessment for any applicant.</h2>
+      </div>
+      <div class="predict-shell">
+        <form id="prediction-form" class="form-card">
+          <div class="field-grid">
+            <input name="applicant_name" placeholder="Applicant Name" required />
+            <input name="Applicant_Income" type="number" placeholder="Applicant Income" required />
+            <input name="Coapplicant_Income" type="number" placeholder="Co-applicant Income" required />
+            <input name="Loan_Amount" type="number" placeholder="Loan Amount" required />
+            <input name="Credit_Score" type="number" placeholder="Credit Score" required />
+            <input name="DTI_Ratio" type="number" step="0.01" placeholder="DTI Ratio" required />
+            <input name="Savings" type="number" placeholder="Savings" required />
+            <input name="Employment_Status" placeholder="Employment Status" required />
+            <input name="Marital_Status" placeholder="Marital Status" required />
+            <input name="Loan_Purpose" placeholder="Loan Purpose" required />
+            <input name="Property_Area" placeholder="Property Area" required />
+            <input name="Gender" placeholder="Gender" required />
+            <input name="Education_Level" placeholder="Education Level" required />
+            <input name="Employer_Category" placeholder="Employer Category" required />
+            <input name="Age" type="number" placeholder="Age" required />
+            <input name="Dependents" type="number" placeholder="Dependents" required />
+            <input name="Existing_Loans" type="number" placeholder="Existing Loans" required />
+          </div>
+          <button class="primary-btn submit-btn" type="submit">Run AI Assessment</button>
+        </form>
+        <div class="results-card" id="results-card">
+          <h3>Outcome Snapshot</h3>
+          <div class="result-pill" id="result-pill">Awaiting prediction</div>
+          <div class="result-metrics">
+            <div><span>Approval Probability</span><strong id="probability-value">--</strong></div>
+            <div><span>Risk Score</span><strong id="risk-value">--</strong></div>
+            <div><span>Confidence</span><strong id="confidence-value">--</strong></div>
+            <div><span>EMI</span><strong id="emi-value">--</strong></div>
+          </div>
+          <div class="recommendation-box" id="recommendation-box">Complete the form to generate a premium analysis.</div>
+          <div class="history-list" id="history-list"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="insights">
+      <div class="section-title">
+        <p class="eyebrow">Decision intelligence</p>
+        <h2>Built for modern credit review and stakeholder confidence.</h2>
+      </div>
+      <div class="card-grid insights-grid">
+        <div class="info-card"><h3>Risk Level</h3><p>Instant categorization from low to high-risk applicants.</p></div>
+        <div class="info-card"><h3>Financial Recommendations</h3><p>Actionable guidance for every prediction outcome.</p></div>
+        <div class="info-card"><h3>Prediction History</h3><p>Every scenario is stored for audit and review.</p></div>
+      </div>
+    </section>
+  </main>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
